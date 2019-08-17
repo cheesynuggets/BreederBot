@@ -8,6 +8,23 @@ namespace BreederBot.Models
 {
     public class DinoModel
     {
+        public DinoModel()
+        {
+        }
+
+        public DinoModel(int id, string dinoNameTag, bool isFemale, string tamedBy, string impritedBy, int level, float dinoImprintQuality, bool isNeutered, StatModel stats)
+        {
+            Id = id;
+            DinoNameTag = dinoNameTag;
+            IsFemale = isFemale;
+            TamedBy = tamedBy;
+            ImpritedBy = impritedBy;
+            Level = level;
+            DinoImprintQuality = dinoImprintQuality;
+            IsNeutered = isNeutered;
+            Stats = stats;
+        }
+
         public int Id{ get; set; }
         public string DinoNameTag { get; set; }
         public bool IsFemale { get; set; }
