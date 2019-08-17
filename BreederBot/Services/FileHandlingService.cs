@@ -13,7 +13,7 @@ namespace BreederBot.Services
 {
     public class FileHandlingService
     {
-        public event Func<MemoryStream, Task> FileReceived;
+        public event Func<MemoryStream, ulong, Task> FileReceived;
         private readonly IServiceProvider _services;
         private readonly DiscordSocketClient _client;
         private readonly WebClient _webClient;
@@ -43,7 +43,7 @@ namespace BreederBot.Services
             var file = message.Attachments.ToArray()[0];
             var memStream = LoadFile(file.Url, file.Filename);
 
-            await FileReceived(memStream);      
+            await FileReceived(memStream, channel.Guild.Id);      
         }
 
         public MemoryStream LoadFile(string URL, string filename)

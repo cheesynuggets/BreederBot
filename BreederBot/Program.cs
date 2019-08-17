@@ -60,6 +60,7 @@ namespace BreederBot
         {
             return new ServiceCollection()
                 .AddSingleton<DiscordSocketClient>()
+                .AddSingleton<DataHandlingService>()
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandlingService>()
                 .AddSingleton<DinoExportParser>()

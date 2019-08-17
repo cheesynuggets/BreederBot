@@ -29,7 +29,6 @@ namespace BreederBot.Models
         }
         public int Id1{ get; set; }
         public int Id2 { get; set; }
-        [LiteDB.BsonId]
         public int uniqueID => new CantorGenerator(Id1, Id2).CantorPair;
         public string DinoNameTag { get; set; }
         public bool IsFemale { get; set; }

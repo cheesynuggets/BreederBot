@@ -209,6 +209,7 @@
     <Compile Include="DinoCounter.cs" />
     <Compile Include="Helpers\DinoExportParser.cs" />
     <Compile Include="Models\DinoModel.cs" />
+    <Compile Include="Models\ServerModel.cs" />
     <Compile Include="Models\StatModel.cs" />
     <Compile Include="PrivateConfig.cs" />
     <Compile Include="Program.cs" />
