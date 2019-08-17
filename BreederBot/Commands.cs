@@ -9,7 +9,6 @@ namespace BreederBot
 {
    public class Commands : ModuleBase<SocketCommandContext>
    {
-        [Command("SetChannel")]
 
    }
 }
