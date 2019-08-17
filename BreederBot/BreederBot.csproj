@@ -206,10 +206,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands.cs" />
+    <Compile Include="DinoCounter.cs" />
     <Compile Include="Helpers\DinoExportParser.cs" />
     <Compile Include="Models\DinoModel.cs" />
     <Compile Include="Models\StatModel.cs" />
-    <Compile Include="OnServerJoin.cs" />
     <Compile Include="PrivateConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

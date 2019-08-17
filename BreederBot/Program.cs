@@ -27,16 +27,20 @@ namespace BreederBot
                 client.JoinedGuild += Client_JoinedGuild;
 
                 var fileHandlingService = services.GetRequiredService<FileHandlingService>();
+                var dinoCounter = services.GetRequiredService<DinoCounter>();
 
+                fileHandlingService.FileReceived += dinoCounter.AddDino;
+               
                 await client.LoginAsync(TokenType.Bot, PrivateConfig.Token);
                 await client.StartAsync();
 
-                
                 await services.GetRequiredService<CommandHandlingService>().InitializeAsync();
-                
+            
                 await Task.Delay(-1);
                 
         }
+
+
         private Task Client_JoinedGuild(SocketGuild arg)
         {
             arg.CreateRoleAsync("Breeder", color: Color.Green);
@@ -60,6 +64,7 @@ namespace BreederBot
                 .AddSingleton<CommandHandlingService>()
                 .AddSingleton<DinoExportParser>()
                 .AddSingleton<WebClient>()
+                .AddSingleton<DinoCounter>()
                 .AddSingleton<FileHandlingService>()
                 .BuildServiceProvider();
         }

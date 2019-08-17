@@ -12,9 +12,7 @@ namespace BreederBot.Models
         {
         }
 
-        public StatModel(float health, float stamina, float torp, float oxygen, float food, float water, float weight,
-                         float melee, float movement, float fortitude, float craftingSkill, int dinoAncestorCount,
-                         int maleMutations, int femaleMutations)
+        public StatModel(ulong health, uint stamina, uint torp, uint oxygen, uint food, uint water, uint weight, uint melee, uint movement, uint fortitude, uint craftingSkill, uint dinoAncestorCount, uint maleMutations, uint femaleMutations)
         {
             Health = health;
             Stamina = stamina;
@@ -32,19 +30,18 @@ namespace BreederBot.Models
             FemaleMutations = femaleMutations;
         }
 
-        public float Health { get; set; }
-        public float Stamina { get; set; }
-        public float Torp { get; set; }
-        public float Oxygen { get; set; }
-        public float Food { get; set; }
-        public float Water { get; set; }
-        public float Weight { get; set; }
-        public float Melee { get; set; }
-        public float Movement { get; set; }
-        public float Fortitude { get; set; }
-        public float CraftingSkill { get; set; }
-        public int DinoAncestorCount { get; set; }
-        public int MaleMutations { get; set; }
-        public int FemaleMutations { get; set; }
+        public ulong Health { get; set; }
+        public uint Stamina { get; set; }
+        public uint Torp { get; set; }
+        public uint Oxygen { get; set; }
+        public uint Food { get; set; }
+        public uint Weight { get; set; }
+        public uint Melee { get; set; }
+        public uint Movement { get; set; }
+        public uint Fortitude { get; set; }
+        public uint CraftingSkill { get; set; }
+        public uint DinoAncestorCount { get; set; }
+        public uint MaleMutations { get; set; }
+        public uint FemaleMutations { get; set; }
     }
 }
