@@ -27,18 +27,25 @@ namespace BreederBot.Services
             _webClient = webClient;
         }
 
-        public async Task<MemoryStream> FileReceivedAsync(SocketMessage rawMessage)
+        public async Task FileReceivedAsync(SocketMessage rawMessage)
         {
-            if (rawMessage.Attachments.Count < 1) return null;
-            if (!(rawMessage is SocketUserMessage message)) return null;
-            if (message.Source != MessageSource.User) return null;
+            if (rawMessage.Attachments.Count < 1) return;
+            if (!(rawMessage is SocketUserMessage message)) return;
+            if (message.Source != MessageSource.User) return;
+
+            var channel = message.Channel as SocketGuildChannel;
+
+            if (!channel.GetUser(rawMessage.Author.Id).Roles.ToList().Exists(c => c.Name.ToLower() == "breeder"))
+            {
+                return;
+            }
 
             var file = message.Attachments.ToArray()[0];
-
-            return LoadFile(file.Url, file.Filename);
+            LoadFile(file.Url, file.Filename);    
+            
         }
 
-        public MemoryStream  LoadFile(string URL, string filename)
+        public MemoryStream LoadFile(string URL, string filename)
         {
             MemoryStream memoryStream = new MemoryStream(_webClient.DownloadData(URL));
             return memoryStream;
