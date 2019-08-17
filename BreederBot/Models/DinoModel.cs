@@ -12,7 +12,7 @@ namespace BreederBot.Models
         {
         }
 
-        public DinoModel(int id1, int id2, string dinoNameTag, bool isFemale, string tamedBy, string impritedBy, int level, int dinoImprintQuality, bool isNeutered, StatModel stats)
+        public DinoModel(int id1, int id2, string dinoNameTag, bool isFemale, string tamedBy, string impritedBy, int level, float dinoImprintQuality, bool isNeutered, StatModel stats)
         {
             Id1 = id1;
             Id2 = id2;
@@ -33,7 +33,7 @@ namespace BreederBot.Models
         public string TamedBy { get; set; }
         public string ImpritedBy { get; set; }
         public int Level { get; set; }
-        public int DinoImprintQuality { get; set; }
+        public float DinoImprintQuality { get; set; }
         public bool IsNeutered { get; set; }
         public StatModel Stats { get; set; }
 

@@ -13,6 +13,7 @@ namespace BreederBot
        public DinoModel ParseDinoExport(MemoryStream memoryStream)
        {
             DinoModel dino = new DinoModel();
+            dino.Stats = new StatModel();
 
             using (var reader = new StreamReader(memoryStream, Encoding.UTF8))
             {
@@ -31,6 +32,7 @@ namespace BreederBot
                     }
 
                     var keyVal = line.Split('=');
+                    if(keyVal.Length < 2) { continue; }
 
                     if (keyVal[0] == "DinoID1")
                     {
@@ -60,45 +62,41 @@ namespace BreederBot
                         dino.ImpritedBy = keyVal[1];
                     } else if (keyVal[0] == "CharacterLevel")
                     {
-                        dino.Level = Convert.ToInt32 (keyVal[1]);
+                        dino.Level = int.Parse(keyVal[1]);
                     }
                     else if (keyVal[0] == "DinoImprintingQuality")
                     {
-                        dino.DinoImprintQuality = Convert.ToInt32(keyVal[1]);
+                        dino.DinoImprintQuality = float.Parse(keyVal[1]);
                     } else if (keyVal[0] == "Health")
                     {
-                        dino.Stats.Health = Convert.ToUInt32(keyVal[1]);
+                        dino.Stats.Health = float.Parse(keyVal[1]);
                     } else if (keyVal[0] == "Stamina")
                     {
-                        dino.Stats.Stamina = Convert.ToUInt32(keyVal[1]);
+                        dino.Stats.Stamina = float.Parse(keyVal[1]);
                     }
                     else if (keyVal[0] == "Torpidity")
                     {
-                        dino.Stats.Torp = Convert.ToUInt32(keyVal[1]);
+                        dino.Stats.Torp = float.Parse(keyVal[1]);
                     }
                     else if (keyVal[0] == "Oxygen")
                     {
-                        dino.Stats.Oxygen = Convert.ToUInt32(keyVal[1]);
+                        dino.Stats.Oxygen = float.Parse(keyVal[1]);
                     }
                     else if (keyVal[0] == "food")
                     {
-                        dino.Stats.Food = Convert.ToUInt32(keyVal[1]);
+                        dino.Stats.Food = float.Parse(keyVal[1]);
                     }
                     else if (keyVal[0] == "Weight")
                     {
-                        dino.Stats.Weight = Convert.ToUInt32(keyVal[1]);
+                        dino.Stats.Weight = float.Parse(keyVal[1]);
                     }
                     else if (keyVal[0] == "Melee Damage")
                     {
-                        dino.Stats.Melee = Convert.ToUInt32(keyVal[1]);
-                    }
-                    else if (keyVal[0] == "Melee Damage")
-                    {
-                        dino.Stats.Melee = Convert.ToUInt32(keyVal[1]);
+                        dino.Stats.Melee = float.Parse(keyVal[1]);
                     }
                     else if (keyVal[0] == "Crafting Skill")
                     {
-                        dino.Stats.CraftingSkill = Convert.ToUInt32(keyVal[1]);
+                        dino.Stats.CraftingSkill = float.Parse(keyVal[1]);
                     }
 
                 }  
