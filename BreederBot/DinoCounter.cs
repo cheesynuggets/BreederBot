@@ -21,7 +21,7 @@ namespace BreederBot
         {
            var obj = _parser.ParseDinoExport(fileStream);
 
-            Console.WriteLine(obj);
+            Console.WriteLine(obj.uniqueID);
 
             return Task.CompletedTask;
         }
