@@ -33,13 +33,14 @@ namespace BreederBot.Services
                 servers.Insert(server);
             }
 
-            return Task.FromResult<ServerModel>(server);
+            return Task.FromResult(server);
         }
         
         Task UpdateServer(ulong id, ServerModel updatedServerModel)
         {
+            Console.WriteLine(id);
             var servers = _db.GetCollection<ServerModel>();
-            servers.Upsert(id, updatedServerModel);
+            servers.Update(updatedServerModel);
 
             return Task.CompletedTask;
         }
@@ -52,13 +53,15 @@ namespace BreederBot.Services
            {
                 server.dinos.RemoveAll(c => c.uniqueID == dinoModel.uniqueID);
                 server.dinos.Add(dinoModel);
-                return;
-           }
+                
 
-            server.dinos.Add(dinoModel);
+            } else
+            {
+                server.dinos.Add(dinoModel);
+            }
 
-            UpdateServer(serverId, server);
-
+            
+            await UpdateServer(serverId, server);
             return;
         }
 

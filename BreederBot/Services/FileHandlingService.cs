@@ -41,6 +41,12 @@ namespace BreederBot.Services
             }
 
             var file = message.Attachments.ToArray()[0];
+
+            if (!file.Filename.EndsWith(".ini"))
+            {
+                return; 
+            }
+
             var memStream = LoadFile(file.Url, file.Filename);
 
             await FileReceived(memStream, channel.Guild.Id);      
