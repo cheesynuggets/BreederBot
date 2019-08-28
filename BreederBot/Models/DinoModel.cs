@@ -14,11 +14,12 @@ namespace BreederBot.Models
             
         }
 
-        public DinoModel(int id1, int id2, string dinoNameTag, bool isFemale, string tamedBy, string impritedBy, int level, float dinoImprintQuality, bool isNeutered, StatModel stats)
+        public DinoModel(int id1, int id2, string dinoNameTag, string dinoType, bool isFemale, string tamedBy, string impritedBy, int level, float dinoImprintQuality, bool isNeutered, StatModel stats)
         {
             Id1 = id1;
             Id2 = id2;
             DinoNameTag = dinoNameTag;
+            DinoType = dinoType;
             IsFemale = isFemale;
             TamedBy = tamedBy;
             ImpritedBy = impritedBy;
@@ -27,10 +28,12 @@ namespace BreederBot.Models
             IsNeutered = isNeutered;
             Stats = stats;
         }
+
         public int Id1{ get; set; }
         public int Id2 { get; set; }
         public int uniqueID => new CantorGenerator(Id1, Id2).CantorPair;
         public string DinoNameTag { get; set; }
+        public string DinoType { get; set; }
         public bool IsFemale { get; set; }
         public string TamedBy { get; set; }
         public string ImpritedBy { get; set; }

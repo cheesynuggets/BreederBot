@@ -51,6 +51,10 @@ namespace BreederBot
                     {
                        dino.IsFemale = Convert.ToBoolean(keyVal[1]);
                     }
+                    else if(keyVal[0] == "DinoClass")
+                    {
+                        dino.DinoType = keyVal[1];
+                    }
                     else if (keyVal[0] == "bNeutered")
                     {
                         dino.IsNeutered = Convert.ToBoolean(keyVal[1]);

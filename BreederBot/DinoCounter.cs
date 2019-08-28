@@ -25,7 +25,7 @@ namespace BreederBot
            var obj = _parser.ParseDinoExport(fileStream);
 
             Console.WriteLine("Adding dino");
-            _dataHandler.AddDinoAsync(serverId, obj);
+            _dataHandler.AddDino(serverId, obj);
 
             return Task.CompletedTask;
         }

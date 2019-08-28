@@ -30,7 +30,9 @@ namespace BreederBot
                 var dinoCounter = services.GetRequiredService<DinoCounter>();
 
                 fileHandlingService.FileReceived += dinoCounter.AddDino;
-               
+
+                var baseStatCalculator = services.GetRequiredService<BaseStatCalculator>();
+
                 await client.LoginAsync(TokenType.Bot, PrivateConfig.Token);
                 await client.StartAsync();
 
@@ -63,6 +65,7 @@ namespace BreederBot
                 .AddSingleton<DataHandlingService>()
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandlingService>()
+                .AddSingleton<BaseStatCalculator>()
                 .AddSingleton<DinoExportParser>()
                 .AddSingleton<WebClient>()
                 .AddSingleton<DinoCounter>()
